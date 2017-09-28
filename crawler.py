@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 
-import urllib
+import urllib.request as rq
 
 url = "http://www.strathmore.edu"
 
 
-data = urllib.urlopen(url).read()
+data = rq.urlopen(url)
+data2 = data.read()
 
-soup = BeautifulSoup(data)
+soup = BeautifulSoup(data2)
 
-for link in soup.find_all('a', href=True);
-
-print(link.get('href'))
+for link in soup.find_all('a', href=True):
+    print(link.get('href'))
